@@ -20,8 +20,19 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('department')->nullable();
-            $table->string('semester')->nullable();
+            $table->date('birthday')->nullable();
+            $table->char('telephone', 10)->unique()->nullable();
+            $table->char('city', 100)->nullable();
+            $table->char('cp', 5)->nullable();
+            $table->text('address')->nullable();
+            $table->boolean('isDelegate')->nullable();
+
+            $table->integer('semester')->unsigned()->nullable();
+            $table->foreign('semester')->references('id')->on('semesters')->onDelete('cascade');
+
+            $table->integer('promotion')->unsigned()->nullable();
+            $table->foreign('promotion')->references('id')->on('promotions')->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });
