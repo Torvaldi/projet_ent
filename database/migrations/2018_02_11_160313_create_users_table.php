@@ -30,8 +30,8 @@ class CreateUsersTable extends Migration
             $table->integer('semester')->unsigned()->nullable();
             $table->foreign('semester')->references('id')->on('semesters')->onDelete('cascade');
 
-            $table->integer('promotion')->unsigned()->nullable();
-            $table->foreign('promotion')->references('id')->on('promotions')->onDelete('cascade');
+            $table->integer('tpgroup')->unsigned()->nullable();
+            $table->foreign('tpgroup')->references('id')->on('tpgroups')->onDelete('cascade');
 
             $table->rememberToken();
             $table->timestamps();

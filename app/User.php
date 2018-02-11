@@ -51,7 +51,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Promotion');
     }
 
-    public function semester() {
-        return $this->belongsTo('App\Semester');
+    public function tpgroup() {
+        return $this->belongsTo('App\Tpgroup');
+    }
+
+    public function notes() {
+        return $this->hasMany('App\Note');
     }
 }
