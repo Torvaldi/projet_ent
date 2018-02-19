@@ -53,6 +53,10 @@
                                     </form>
                                 </div>
                             </li>
+
+                            @if(Auth::user()->hasRole('Administrateur'))
+                                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-lock"></i> ADMIN</a></li>
+                            @endif
                         @endguest
                     </ul>
                 </div>
