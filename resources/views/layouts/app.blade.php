@@ -55,7 +55,7 @@
                             </li>
 
                             @if(Auth::user()->hasRole('Administrateur'))
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-lock"></i> ADMIN</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('prof_home') }}">Tableau de bord <i class="fas fa-key fa-xs"></i></a></li>
                             @endif
                         @endguest
                     </ul>

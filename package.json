@@ -20,7 +20,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "font-awesome": "^4.7.0",
+        "@fortawesome/fontawesome-free-webfonts": "^1.0.3",
         "gulp": "^3.9.1"
     }
 }
