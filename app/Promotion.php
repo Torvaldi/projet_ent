@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
-    public function users() {
-        return $this->hasMany('App\User');
+    public function tdgroups() {
+        return $this->hasMany('App\Tdgroup');
     }
 }

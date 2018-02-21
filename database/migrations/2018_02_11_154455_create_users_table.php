@@ -27,11 +27,11 @@ class CreateUsersTable extends Migration
             $table->text('address')->nullable();
             $table->boolean('isDelegate')->nullable();
 
-            $table->integer('semester')->unsigned()->nullable();
-            $table->foreign('semester')->references('id')->on('semesters')->onDelete('cascade');
+            $table->integer('semester_id')->unsigned()->nullable();
+            $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('cascade');
 
-            $table->integer('tpgroup')->unsigned()->nullable();
-            $table->foreign('tpgroup')->references('id')->on('tpgroups')->onDelete('cascade');
+            $table->integer('tpgroup_id')->unsigned()->nullable();
+            $table->foreign('tpgroup_id')->references('id')->on('tpgroups')->onDelete('cascade');
 
             $table->rememberToken();
             $table->timestamps();

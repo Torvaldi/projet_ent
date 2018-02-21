@@ -25,7 +25,7 @@ class RoleTableSeeder extends Seeder
 
         $role_administrator = new Role();
         $role_administrator->name = 'Administrateur';
-        $role_administrator->active = false;
+        $role_administrator->active = true;
         $role_administrator->save();
     }
 }

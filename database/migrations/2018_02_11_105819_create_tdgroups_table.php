@@ -18,8 +18,8 @@ class CreateTdgroupsTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
 
-            $table->integer('promotion')->unsigned()->nullable();
-            $table->foreign('promotion')->references('id')->on('promotions')->onDelete('cascade');
+            $table->integer('promotion_id')->unsigned()->nullable();
+            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade');
             
             $table->timestamps();
         });

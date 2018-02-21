@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function notes() {
         return $this->hasMany('App\Note');
     }
+
+    public function semester() {
+        return $this->belongsTo('App\Semester');
+    }
 }

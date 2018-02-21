@@ -6,6 +6,10 @@ use Carbon\Carbon;
 
 use App\User;
 use App\Role;
+use App\Tpgroup;
+use App\Semester;
+
+use Faker\Factory as Faker;
 
 class UserTableSeeder extends Seeder
 {
@@ -23,6 +27,34 @@ class UserTableSeeder extends Seeder
         $role_professor = Role::where('name', 'Professeur')->first();
         $role_administrator = Role::where('name', 'Administrateur')->first();
 
+        $faker = Faker::create();
+
+        for ($i=1; $i < 14 ; $i++) {
+            $user = new User();
+            $user->username = $faker->username;
+            $user->firstName = $faker->firstName;
+            $user->lastName = $faker->lastName;
+            $user->email = $faker->email;
+            $user->birthday = $faker->date();
+            $user->password = bcrypt('123aze');
+            $user->tpgroup_id = Tpgroup::where('id', $i)->first()->id;
+            $user->semester_id = Semester::where('name', 'Semestre 1')->first()->id;
+            $user->save();
+            $user->roles()->attach($role_student);
+
+            $user = new User();
+            $user->username = $faker->username;
+            $user->firstName = $faker->firstName;
+            $user->lastName = $faker->lastName;
+            $user->birthday = $faker->date();
+            $user->email = $faker->email;
+            $user->password = bcrypt('123aze');
+            $user->tpgroup_id = Tpgroup::where('id', $i)->first()->id;
+            $user->semester_id = Semester::where('name', 'Semestre 3')->first()->id;
+            $user->save();
+            $user->roles()->attach($role_student);
+        }
+
         $user = new User();
         $user->username = 'laurentq';
         $user->email = 'quentin.laurent@etu.univ-grenoble-alpes.fr';
@@ -32,6 +64,7 @@ class UserTableSeeder extends Seeder
         $user->isDelegate = true;
         $user->birthday = Carbon::create('1997', '12', '23');
         $user->created_at = $dateNow;
+        $user->tpgroup_id = Tpgroup::where('id', 1)->first()->id;
         $user->save();
         $user->roles()->attach($role_student);
         $user->roles()->attach($role_administrator);

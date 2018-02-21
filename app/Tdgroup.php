@@ -10,7 +10,11 @@ class Tdgroup extends Model
         return $this->hasMany('App\Tpgroup');
     }
 
-    public function semester() {
-        return $this->belongsTo('App\Semester');
+    public function users() {
+        return $this->hasManyThrough('App\User', 'App\Tpgroup');
+    }
+
+    public function promotion() {
+        return $this->belongsTo('App\Promotion');
     }
 }

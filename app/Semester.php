@@ -9,4 +9,8 @@ class Semester extends Model
     public function tdgroups() {
         return $this->hasMany('App\Tdgroup');
     }
+
+    public function users() {
+        return$this->hasMany('App\User');
+    }
 }

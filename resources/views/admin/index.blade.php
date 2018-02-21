@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-3 mt-3">
-                <a class="card-link" href="#">
+                <a class="card-link" href="{{ route('prof_users') }}">
                     <div class="card text-white bg-primary">
                         <div class="card-body">
                             <div class="row">
