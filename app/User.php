@@ -39,10 +39,6 @@ class User extends Authenticatable
         return null !== $this->roles()->where('name', $role)->where('active', 1)->first();
     }
 
-    public function promotion() {
-        return $this->belongsTo('App\Promotion');
-    }
-
     public function tpgroup() {
         return $this->belongsTo('App\Tpgroup');
     }

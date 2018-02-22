@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder
 
         $faker = Faker::create();
 
-        for ($i=1; $i < 14 ; $i++) {
+        for ($i=1; $i <= 16 ; $i++) {
             $user = new User();
             $user->username = $faker->username;
             $user->firstName = $faker->firstName;

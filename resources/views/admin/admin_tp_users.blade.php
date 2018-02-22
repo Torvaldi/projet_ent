@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <a href="{{ route('prof_users') }}" type="button" class="btn btn-secondary btn-sm mb-3"><i class="fas fa-arrow-left"></i> Retour</a>
-        <h3>Liste des utilisateur du groupe {{ $tdgroup->name }} - {{ $tdgroup->promotion->name }}</h3>
+        <h3>Liste des utilisateur du groupe {{ $tpgroup->tdgroup->promotion->name }} - {{ $tpgroup->name }}</h3>
         <ul class="nav nav-pills nav-fill" id="semester_tab">
             @foreach($semesters as $semester)
-            <li class="nav-item">
-                <a class="nav-link" id="{{ $semester->id }}_tab" href="#{{$semester->id}}" onclick="active_class({{ $semester->id }}, {{ count($semesters) }})">{{ $semester->name }}</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="{{ $semester->id }}_tab" href="#{{$semester->id}}" onclick="active_class({{ $semester->id }}, {{ count($semesters) }})">{{ $semester->name }}</a>
+                </li>
             @endforeach
         </ul>
         <div class="tab-content" id="semester_tabContent">
@@ -23,7 +23,7 @@
                         </thead>
                         <tbody>
                         @foreach($semester->users as $user)
-                            @if(($user->tpgroup->tdgroup->id == $tdgroup->id) && !($user->hasRole('Administrateur')) && !($user->hasRole('Professeur')))
+                            @if(($user->tpgroup->id == $tpgroup->id) && !($user->hasRole('Administrateur')) && !($user->hasRole('Professeur')))
                                 <tr>
                                     <td>{{ $user->lastName }}</td>
                                     <td>{{ $user->firstName }}</td>

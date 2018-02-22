@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tpgroup extends Model
 {
     public function users() {
-        return $this->hasManyThrough('App\User', 'App\Tdgroup');
+        return $this->hasMany('App\User');
     }
 
     public function tdgroup() {
