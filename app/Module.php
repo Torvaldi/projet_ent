@@ -11,6 +11,10 @@ class Module extends Model
     }
 
     public function tdgroups() {
-        return $this->belongsTo('App\Tdgroup');
+        return $this->belongsToMany('App\Tdgroup');
+    }
+
+    public function profs() {
+        return $this->hasMany('App\User');
     }
 }

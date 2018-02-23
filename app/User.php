@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function semester() {
         return $this->belongsTo('App\Semester');
     }
+
+    public function prof_modules() {
+        return $this->belongsToMany('App\Module');
+    }
 }

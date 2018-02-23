@@ -14,6 +14,10 @@ class Tdgroup extends Model
         return $this->hasManyThrough('App\User', 'App\Tpgroup');
     }
 
+    public function modules() {
+        return $this->belongsTo('App\Module');
+    }
+
     public function promotion() {
         return $this->belongsTo('App\Promotion');
     }

@@ -19,11 +19,14 @@ class CreateNotesTable extends Migration
             $table->float('value');
             $table->timestamps();
 
-            $table->integer('module')->unsigned()->nullable();
+            $table->integer('module')->unsigned();
             $table->foreign('module')->references('id')->on('modules')->onDelete('cascade');
 
-            $table->integer('user')->unsigned()->nullable();
+            $table->integer('user')->unsigned();
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('prof_id')->unsigned();
+            $table->foreign('prof_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -54,7 +54,7 @@
                                 </div>
                             </li>
 
-                            @if(Auth::user()->hasRole('Administrateur'))
+                            @if((Auth::user()->hasRole('Administrateur')) || (Auth::user()->hasRole('Professeur')))
                                 <li class="nav-item"><a class="nav-link" href="{{ route('prof_home') }}">Tableau de bord <i class="fas fa-key fa-xs"></i></a></li>
                             @endif
                         @endguest
