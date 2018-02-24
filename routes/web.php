@@ -30,7 +30,12 @@ Route::group(['prefix' => '/prof'], function (){
 
     Route::group(['prefix' => '/notes'], function (){
         Route::get('/', 'ProfNotesController@index')->name('prof_notes')->middleware('auth');
-        Route::post('/students', 'ProfNotesController@get_students')->name('prof_students_get')->middleware('auth');
+        Route::post('/students/get', 'ProfNotesController@get_students')->name('prof_students_get')->middleware('auth');
+        Route::post('/students/post', 'ProfNotesController@post_notes')->name('prof_students_post')->middleware('auth');
+        Route::get('/students/view/module/{module_id}', 'ProfNotesController@viewExams')->name('prof_students_view')->middleware('auth');
+        Route::get('/students/view/module/{module_id}/notes/{exam_id}', 'ProfNotesController@viewNotes')->name('prof_students_view_notes')->middleware('auth');
+        Route::post('/students/note/edit/{note_id}', 'ProfNotesController@editNotePost')->name('prof_students_note_edit_post')->middleware('auth');
+        Route::get('/students/note/edit/{note_id}', 'ProfNotesController@editNote')->name('prof_students_note_edit')->middleware('auth');
 
         Route::get('/students/tdgroup/{module_id}', 'ProfNotesController@json_td_groups')->middleware('auth');
         Route::get('/students/tpgroup/{tdgroup_id}', 'ProfNotesController@json_tp_groups')->middleware('auth');

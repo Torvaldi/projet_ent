@@ -64,7 +64,6 @@ class UserTableSeeder extends Seeder
         $user->isDelegate = true;
         $user->birthday = Carbon::create('1997', '12', '23');
         $user->created_at = $dateNow;
-        $user->tpgroup_id = Tpgroup::where('id', 1)->first()->id;
         $user->save();
         $user->roles()->attach($role_student);
         $user->roles()->attach($role_administrator);
