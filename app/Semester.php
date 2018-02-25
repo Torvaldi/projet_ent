@@ -11,6 +11,6 @@ class Semester extends Model
     }
 
     public function users() {
-        return$this->hasMany('App\User')->orderBy('lastName');
+        return $this->hasMany('App\User')->orderBy('lastName');
     }
 }

@@ -17,4 +17,8 @@ class Module extends Model
     public function profs() {
         return $this->hasMany('App\User');
     }
+
+    public function semester() {
+        return $this->belongsTo('App\Semester');
+    }
 }

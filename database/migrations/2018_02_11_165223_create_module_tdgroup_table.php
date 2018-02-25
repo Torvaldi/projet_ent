@@ -20,6 +20,7 @@ class CreateModuleTdgroupTable extends Migration
 
             $table->integer('tdgroup_id')->unsigned();
             $table->foreign('tdgroup_id')->references('id')->on('tdgroups')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -37,6 +37,12 @@
                             <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
+                            @if((Auth::user()->hasRole('Administrateur')) || (Auth::user()->hasRole('Professeur')))
+                                <li class="nav-item"><a class="nav-link" href="{{ route('prof_home') }}">Tableau de bord</a></li>
+                            @else
+                                <li class="nav-item"><a class="nav-link" href="{{ route('student_notes') }}">Mes notes</a></li>
+                            @endif
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->username }} <span class="caret"></span>
@@ -53,10 +59,6 @@
                                     </form>
                                 </div>
                             </li>
-
-                            @if((Auth::user()->hasRole('Administrateur')) || (Auth::user()->hasRole('Professeur')))
-                                <li class="nav-item"><a class="nav-link" href="{{ route('prof_home') }}">Tableau de bord <i class="fas fa-key fa-xs"></i></a></li>
-                            @endif
                         @endguest
                     </ul>
                 </div>

@@ -18,6 +18,9 @@ class CreateModulesTable extends Migration
             $table->string('number');
             $table->string('name');
             $table->timestamps();
+
+            $table->integer('semester_id')->unsigned();
+            $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('cascade');
         });
     }
 

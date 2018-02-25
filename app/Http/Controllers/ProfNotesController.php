@@ -57,6 +57,7 @@ class ProfNotesController extends Controller
         $name = $request->input('examName');
         $file = Input::file('excelFile');
         $maxPoints = $request->input('maxPoints');
+        $coef = $request->input('coef');
 
         $module = Module::where('id', $module_id)->firstOrFail();
         $prof_id = Auth::id();
@@ -76,6 +77,7 @@ class ProfNotesController extends Controller
         if ($count == count($file_readed)) {
             $exam = new Exam();
             $exam->name = $name;
+            $exam->coef = $coef;
             $exam->module_id = $module_id;
             $exam->prof_id = $prof_id;
             $exam->created_at = Carbon::now();

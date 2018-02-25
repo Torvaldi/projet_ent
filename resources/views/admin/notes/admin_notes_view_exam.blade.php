@@ -30,12 +30,12 @@
             <tr>
                 <td>{{ $note->user->lastName }} {{ $note->user->firstName }}</td>
                 <td>{{ $note->value }} / {{ $exam->maxPoints }}</td>
-                <td>{{ $note->created_at->format('d/m/Y') }}</td>
+                <td>{{ $note->created_at->format('d/m/Y \\à H:i') }}</td>
                 <td>
                     @if(($exam->created_at == $exam->updated_at) || !$exam->updated_at)
                         <i class="fas fa-times"></i>
                     @else
-                        {{ $exam->updated_at->format('d/m/Y') }}
+                        {{ $exam->updated_at->format('d/m/Y \\à H:i') }}
                     @endif
                 </td>
                 <td><a href="{{ route('prof_students_note_edit_post', $note->id) }}"><i class="fas fa-edit"></i></a></td>

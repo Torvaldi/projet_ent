@@ -23,7 +23,6 @@ class ProfStudentsController extends Controller
 
     public function list_td(Tdgroup $tdgroup) {
         $semesters = Semester::with("users")->get();
-        $tpgroups = Tpgroup::where('tdgroup_id', $tdgroup->id)->get();
         return view('admin/student_list/admin_td_users', compact('tdgroup', 'semesters'));
     }
 

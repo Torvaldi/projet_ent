@@ -17,6 +17,7 @@ class CreateExamTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->float('maxPoints');
+            $table->float('coef');
 
             $table->integer('module_id')->unsigned();
             $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');

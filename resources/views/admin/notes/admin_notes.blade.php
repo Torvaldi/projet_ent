@@ -38,6 +38,11 @@
                                         <input type="number" class="form-control" id="maxPoints" name="maxPoints" placeholder="Barème total">
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="coef">Coefficient</label>
+                                        <input type="number" class="form-control" id="coef" name="coef" placeholder="Coefficient">
+                                    </div>
+
                                     <div class="form-group {{ $errors->has('excelFile') ? ' has-error' : ''}}">
                                         <label for="excelFile">Fichier de notes</label>
                                         <input type="file" class="form-control-file" id="excelFile" name="excelFile">
