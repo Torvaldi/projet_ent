@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Survey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $survey = Survey::orderBy('created_at', 'desc')->first();
+        return view('home', compact('survey'));
     }
 }

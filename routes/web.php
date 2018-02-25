@@ -20,6 +20,12 @@ Route::group(['prefix' => '/notes'], function (){
     Route::get('/', 'NoteController@index')->name('student_notes')->middleware('auth');
 });
 
+// /survey
+Route::group(['prefix' => '/survey'], function (){
+    Route::get('/', 'SurveyController@create')->name('create_survey')->middleware('auth');
+    Route::post('/', 'SurveyController@store')->name('create_survey_post')->middleware('auth');
+});
+
 // /prof
 Route::group(['prefix' => '/prof'], function (){
     Route::get('/', 'ProfController@index')->name('prof_home')->middleware('auth');

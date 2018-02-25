@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-3 mt-3">
-                <div class="card text-white bg-primary">
+                <div class="card text-white bg-primary disabled">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">

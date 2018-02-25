@@ -66,7 +66,6 @@ class UserTableSeeder extends Seeder
         $user->created_at = $dateNow;
         $user->save();
         $user->roles()->attach($role_student);
-        $user->roles()->attach($role_administrator);
 
         $user = new User();
         $user->username = 'gontardg';
