@@ -24,6 +24,7 @@ Route::group(['prefix' => '/notes'], function (){
 Route::group(['prefix' => '/survey'], function (){
     Route::get('/', 'SurveyController@create')->name('create_survey')->middleware('auth');
     Route::post('/', 'SurveyController@store')->name('create_survey_post')->middleware('auth');
+    Route::post('/vote', 'HomeController@vote')->name('vote_survey')->middleware('auth');
 });
 
 // /prof

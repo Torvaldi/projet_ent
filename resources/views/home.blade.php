@@ -24,9 +24,18 @@
                     <div class="card-header">Sondage</div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $survey->question }}</h5>
-                        @foreach($survey->responses as $response)
-                            <p>{{ $response->response }}</p>
-                        @endforeach
+                        <form action="{{ route('vote_survey') }}" method="POST">
+                            {{csrf_field()}}
+                            @foreach($survey->responses as $response)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="response" value="{{$response->id}}">
+                                    <label class="form-check-label" for="{{ $response->id }}">
+                                        {{ $response->response }}
+                                    </label>
+                                </div>
+                            @endforeach
+                            <button type="submit" class="btn btn-block btn-outline-success mt-2">Voter</button>
+                        </form>
                     </div>
                     @if((Auth::user()->isDelegate) || (Auth::user()->hasRole('Administrateur')) || (Auth::user()->hasRole('Professeur')))
                     <div class="card-footer">
